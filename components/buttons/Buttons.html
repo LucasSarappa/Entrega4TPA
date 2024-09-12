@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <link rel="stylesheet" href="Buttons.module.css">
+</head>
+<body>
+<!-- Buttons -->
+<div class="container">
+    <button class="colaborar-btn boton-estilo-comun disabledBtn" id="colaborarBtn">
+        <img src="../../components/utils/logoColaborar.png" alt="Logo Colaborar" style="margin-right: 10px; height: 24px;">
+        Colaborar
+    </button>
+    <button class="solicitar-btn boton-estilo-comun disabledBtn" id="solicitarBtn">
+        <img src="../../components/utils/logoSolicitar.png" alt="Logo Solicitar" style="margin-right: 10px; height: 24px;">
+        Solicitar
+    </button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const colaborarBtn = document.getElementById('colaborarBtn');
+        const solicitarBtn = document.getElementById('solicitarBtn');
+
+        colaborarBtn.addEventListener('click', function() {
+            const userType = localStorage.getItem('userType');
+            if (!colaborarBtn.classList.contains('disabledBtn')) {
+                if (userType === 'vulnerable') {
+                    // Cargar opciones para persona vulnerable
+                    window.location.href = '/PaginaOpcionesVulnerable';
+                } else if (userType === 'humana') {
+                    // Cargar opciones para persona humana
+                    window.location.href = '/PaginaOpcionesHumana';
+                }
+            }
+        });
+
+        solicitarBtn.addEventListener('click', function() {
+            if (!solicitarBtn.classList.contains('disabledBtn')) {
+                // Implementa la lógica de navegación para el botón Solicitar
+            }
+        });
+    });
+</script>
+</body>
+</html>
