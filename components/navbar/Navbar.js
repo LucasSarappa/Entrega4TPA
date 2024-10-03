@@ -87,5 +87,9 @@ function togglePuntosDropdown() {
     }
 }
 function handlerOpcionesHeladera() {
-    window.location.href = '/front_html_css/pages/colaboraciones/tipos-de-colaboraciones/PaginaHacerseCargoDeUnaHeladera.html';
+    window.location.href = '../../pages/colaboraciones/tipos-de-colaboraciones/harcerseCargoDeUnaHeladera/PaginaHacerseCargoDeUnaHeladera.html';
+}
+
+function handlerDonarDinero() {
+    window.location.href = '../../pages/colaboraciones/tipos-de-colaboraciones/donarDinero/DonarDinero.html';
 }

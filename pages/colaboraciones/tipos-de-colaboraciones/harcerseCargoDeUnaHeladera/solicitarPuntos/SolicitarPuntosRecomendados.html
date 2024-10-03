@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
-    <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
-    <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
-    <link rel="stylesheet" href="PaginaColaboraciones.module.css">
-    <link rel="stylesheet" href="../../components/tipos-colaboraciones/TiposColaboraciones.module.css">
+    <link rel="stylesheet" href="../../../../../components/navbar/Navbar.module.css">
+    <link rel="stylesheet" href="../../../../../components/buttons/Buttons.module.css">
+    <link rel="stylesheet" href="../../../PaginaColaboraciones.module.css">
+    <link rel="stylesheet" href="../../../../../components/tipos-colaboraciones/heladera/BotonesHacerseCargo.module.css">
+    <link rel="stylesheet" href="SolicitarPuntosRecomendados.module.css"> <!-- Enlace al nuevo archivo CSS -->
 </head>
 <body>
 <div class="pg-principal-container">
@@ -69,60 +70,38 @@
             </button>
         </div>
 
-
+        <div id="auth-buttons">
+            <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
+        </div>
     </nav>
 
-    <!-- TIPOS DE COLABORACIONES -->
     <div class="section">
-        <div class="container">
-            <div class="section-cards grid-3-columns" id="card-donar-dinero">
-                <!-- Donar dinero - Disponible para todos -->
-                <div class="section-card" onclick=handlerDonarDinero()>
-                    <span></span>
-                    <h2>Donar dinero</h2>
-                    <p>Realiza una contribución monetaria para las personas que más lo necesitan.</p>
-                </div>
-                <!-- Hacerse cargo de una heladera - Solo disponible para juridica -->
-                <div class="section-card" id="card-heladera" onclick=handlerOpcionesHeladera()>
-                    <span></span>
-                    <h2>Hacerse cargo de una heladera</h2>
-                    <p>Comprométete a mantener una heladera comunitaria abastecida con alimentos.</p>
-                </div>
-                <!-- Donar vianda - Disponible para humana -->
-                <div class="section-card" id="card-donar-vianda" onclick="window.location.href='/donar-vianda'">
-                    <span></span>
-                    <h2>Donar vianda</h2>
-                    <p>Puedes donar alimentos preparados que serán distribuidos a personas en situación de
-                        vulnerabilidad.</p>
-                </div>
-                <!-- Distribuir vianda - Disponible para humana -->
-                <div class="section-card" id="card-distribuir-vianda"
-                     onclick="window.location.href='/distribuir-vianda'">
-                    <span></span>
-                    <h2>Distribuir vianda</h2>
-                    <p>Únete a nuestro equipo de voluntarios para ayudar en la entrega de viandas a diversas
-                        comunidades.</p>
-                </div>
+        <div class="container flex-container">
+            <div class="form-container">
+                <form id="location-form" class="styled-form">
+                    <label for="latitud">Latitud:</label>
+                    <input type="text" id="latitud" name="latitud" required><br><br>
+                    <label for="longitud">Longitud:</label>
+                    <input type="text" id="longitud" name="longitud" required><br><br>
+                    <label for="radio">Radio:</label>
+                    <input type="text" id="radio" name="radio" required><br><br>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="data-display">
+                <ul id="data-list"></ul>
             </div>
         </div>
     </div>
 </div>
 
-<script src="../../components/navbar/Navbar.js"></script>
-
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const userType = localStorage.getItem('userType');
-        const sectionCards = document.querySelector('.section-cards');
-
-        if (userType === 'juridica') {
-            document.getElementById('card-donar-vianda').style.display = 'none';
-            document.getElementById('card-distribuir-vianda').style.display = 'none';
-            sectionCards.classList.add('center-cards');
-        } else if (userType === 'humana') {
-            document.getElementById('card-heladera').style.display = 'none';
-            sectionCards.classList.add('grid-3-columns', 'center-cards');
-        }
+    document.getElementById('location-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const latitud = document.getElementById('latitud').value;
+        const longitud = document.getElementById('longitud').value;
+        const radio = document.getElementById('radio').value;
+        document.getElementById('data-output').innerText = `Latitud: ${latitud}, Longitud: ${longitud}, Radio: ${radio}`;
     });
 </script>
 </body>
