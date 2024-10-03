@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
-    <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
-    <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
-    <link rel="stylesheet" href="PaginaColaboraciones.module.css">
-    <link rel="stylesheet" href="../../components/tipos-colaboraciones/TiposColaboraciones.module.css">
+    <link rel="stylesheet" href="../../../../components/navbar/Navbar.module.css">
+    <link rel="stylesheet" href="../../../../components/buttons/Buttons.module.css">
+    <link rel="stylesheet" href="../../PaginaColaboraciones.module.css">
+    <link rel="stylesheet" href="../../../../components/tipos-colaboraciones/heladera/BotonesHacerseCargo.module.css">
+
 </head>
 <body>
 <div class="pg-principal-container">
@@ -69,44 +70,36 @@
             </button>
         </div>
 
-
+        <div id="auth-buttons">
+            <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
+        </div>
     </nav>
 
-    <!-- TIPOS DE COLABORACIONES -->
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./BotonesHacerseCargo.module.css">
+        <title>Botones Hacerse Cargo</title>
+    </head>
+    <body>
     <div class="section">
         <div class="container">
-            <div class="section-cards grid-3-columns" id="card-donar-dinero">
-                <!-- Donar dinero - Disponible para todos -->
-                <div class="section-card" onclick=handlerDonarDinero()>
-                    <span></span>
-                    <h2>Donar dinero</h2>
-                    <p>Realiza una contribución monetaria para las personas que más lo necesitan.</p>
+            <div class="section-cards">
+                <div class="section-card" onclick="window.location.href='solicitarPuntos/SolicitarPuntosRecomendados.html'">
+                    <h2>Solicitar puntos recomendados para poner heladeras</h2>
                 </div>
-                <!-- Hacerse cargo de una heladera - Solo disponible para juridica -->
-                <div class="section-card" id="card-heladera" onclick=handlerOpcionesHeladera()>
-                    <span></span>
-                    <h2>Hacerse cargo de una heladera</h2>
-                    <p>Comprométete a mantener una heladera comunitaria abastecida con alimentos.</p>
-                </div>
-                <!-- Donar vianda - Disponible para humana -->
-                <div class="section-card" id="card-donar-vianda" onclick="window.location.href='/donar-vianda'">
-                    <span></span>
-                    <h2>Donar vianda</h2>
-                    <p>Puedes donar alimentos preparados que serán distribuidos a personas en situación de
-                        vulnerabilidad.</p>
-                </div>
-                <!-- Distribuir vianda - Disponible para humana -->
-                <div class="section-card" id="card-distribuir-vianda"
-                     onclick="window.location.href='/distribuir-vianda'">
-                    <span></span>
-                    <h2>Distribuir vianda</h2>
-                    <p>Únete a nuestro equipo de voluntarios para ayudar en la entrega de viandas a diversas
-                        comunidades.</p>
+                <div class="section-card">
+                    <h2>Suscribirse a una heladera</h2>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </body>
+    </html>
+
+
 
 <script src="../../components/navbar/Navbar.js"></script>
 
@@ -125,5 +118,4 @@
         }
     });
 </script>
-</body>
 </html>
