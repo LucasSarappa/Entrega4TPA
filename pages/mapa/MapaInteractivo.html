@@ -6,13 +6,44 @@
     <title>Mapa Interactivo</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #top-bar {
+            height: 50px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
         #map {
-            height: 100vh; /* Altura del mapa para que ocupe toda la ventana */
+            height: calc(100vh - 50px); /* Altura del mapa ajustada */
             width: 100%; /* Ancho del mapa para que ocupe todo el contenedor */
+        }
+        .select-box {
+            margin-left: 20px;
         }
     </style>
 </head>
 <body>
+<div id="top-bar">
+    <button onclick="goBack()">Atrás</button>
+    <div class="select-box">
+        <label for="region">Región:</label>
+        <select id="region" onchange="updateOptions()">
+            <option value="Capital Federal">Capital Federal</option>
+            <option value="Provincia">Provincia</option>
+        </select>
+    </div>
+    <div class="select-box">
+        <label for="options">Barrios/Partidos:</label>
+        <select id="options">
+            <!-- Los barrios/partidos se actualizarán dinámicamente -->
+        </select>
+    </div>
+</div>
 <div id="map"></div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
@@ -28,7 +59,6 @@
     const heladeras = [
         {lat: -34.6037, lng: -58.5288008, popup: 'Heladera 1'},
         {lat: -34.6059001, lng: -58.5188008, popup: 'Heladera 10'}
-
     ];
 
     // Añade un marcador para cada heladera
@@ -37,6 +67,32 @@
             .bindPopup(heladera.popup)
             .openPopup();
     });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    // Carga las provincias y barrios desde un archivo JSON
+    fetch('provincias.json')
+        .then(response => response.json())
+        .then(data => {
+            window.provinciasData = data;
+            updateOptions();
+        });
+
+    function updateOptions() {
+        const region = document.getElementById('region').value;
+        const optionsSelect = document.getElementById('options');
+        optionsSelect.innerHTML = ''; // Limpia las opciones anteriores
+
+        const options = window.provinciasData['Buenos Aires'][region] || [];
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            optionsSelect.appendChild(optionElement);
+        });
+    }
 </script>
 </body>
 </html>
