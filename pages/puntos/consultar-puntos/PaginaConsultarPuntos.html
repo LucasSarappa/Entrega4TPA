@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
-    <link rel="stylesheet" href="PaginaNosotros.module.css">
-    <link rel="stylesheet" href="../../App.css">
-    <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
-    <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
+    <link rel="stylesheet" href="PaginaConsultarPuntos.module.css">
+    <link rel="stylesheet" href="../../../components/navbar/Navbar.module.css">
+    <link rel="stylesheet" href="../../../components/buttons/Buttons.module.css">
+    <title>Consultar Puntos</title>
 </head>
-<body>
-<div class="pg-principal-container">
+<body class="pg-puntos-container">
+<img src="../../../components/utils/logo-sin-fondo.png" alt="Logo" class="pg-puntos-imagen-logo-esquina">
     <!-- Navbar -->
     <nav class="navbar">
-        <button class="inicio-btn boton-navbar-estilo-comun" onclick="handleInicioClick()">
+        <button class="inicio-btn boton-navbar-estilo-comun"  onclick="handleInicioClick()" >
             <div class="contenido-inicio-btn" style="display: flex; align-items: center;">
                 <p>Inicio</p>
             </div>
         </button>
 
-        <button class="nosotros-btn boton-navbar-estilo-comun" onclick="handleNosotrosClick()">
+        <button class="nosotros-btn boton-navbar-estilo-comun" disabled >
             <div class="contenido-nosotros-btn" style="display: flex; align-items: center;">
                 <p>Nosotros</p>
             </div>
         </button>
 
-        <button class="faqs-btn boton-navbar-estilo-comun" onclick="handleFaqsClick()">
+        <button class="faqs-btn boton-navbar-estilo-comun" disabled>
             <div class="contenido-faqs-btn" style="display: flex; align-items: center;">
                 <p>FAQs</p>
             </div>
         </button>
 
-        <button class="noticias-btn boton-navbar-estilo-comun" onclick="handleNoticiasClick()">
+        <button class="alertas-btn boton-navbar-estilo-comun" disabled >
             <div class="contenido-noticias-btn" style="display: flex; align-items: center;">
                 <p>Noticias</p>
             </div>
@@ -50,9 +49,8 @@
                     <p>Cargar Colaboradores</p>
                 </div>
             </button>
-            <div class="puntos-dropdown-container" onmouseenter="showPuntosDropdown()"
-                 onmouseleave="hidePuntosDropdown()">
-                <button class="puntos-btn boton-navbar-estilo-comun">
+            <div class="puntos-dropdown-container">
+                <button class="puntos-btn boton-navbar-estilo-comun" onclick="togglePuntosDropdown()">
                     <div class="contenido-puntos-btn" style="display: flex; align-items: center;">
                         <p>Puntos</p>
                     </div>
@@ -69,35 +67,33 @@
             </button>
         </div>
 
-
-    </nav>
-    <!-- Page content -->
-    <div class="section">
-        <div class="container">
-            <div class="section-cards">
-                <div class="section-card">
-                    <h2>¿Quiénes somos?</h2>
-                    <p>Somos una organización sin fines de lucro que busca reducir el hambre en Argentina.</p>
-                </div>
-                <div class="section-card">
-                    <h2>¿Qué hacemos?</h2>
-                    <p>Recolectamos alimentos y los distribuimos a personas en situación de vulnerabilidad.</p>
-                </div>
-                <div class="section-card">
-                    <h2>¿Cómo lo hacemos?</h2>
-                    <p>Gracias a la colaboración de voluntarios y donantes, logramos llevar alimentos a quienes más lo
-                        necesitan.</p>
-                </div>
-            </div>
+        <div id="auth-buttons">
+            <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
         </div>
-
-
+    </nav>
+<div class="rectangulo-puntos-personalizado">
+    <div class="stats-puntos-container">
+        <div class="stats-puntos-card active">
+            <div class="stats-puntos-title">Puntos acumulados:</div>
+            <div class="stats-puntos-value">10.234</div>
+            <button class="canjealos-btn" onclick="handleCanjearPuntosClick()">Canjealos!</button>
+        </div>
     </div>
-
-
-    <script src="../../components/navbar/Navbar.js"></script>
-
 </div>
+<script>
+    let activeIndex = 0;
+    const stats = [
+        {title: "Puntos acumulados:", value: "10.234"}
+    ];
+
+    setInterval(() => {
+        activeIndex = (activeIndex + 1) % stats.length;
+        document.querySelectorAll('.stats-puntos-card').forEach((card, index) => {
+            card.classList.toggle('active', index === activeIndex);
+        });
+    }, 3000);
+</script>
+<script src="../../../components/navbar/Navbar.js"></script>
 
 </body>
 </html>

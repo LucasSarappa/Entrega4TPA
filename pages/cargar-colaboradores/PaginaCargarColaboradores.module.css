@@ -29,7 +29,7 @@ body.puntos-body, html.puntos-html {
 
 .rectangulo-puntos-personalizado {
     width: 700px;
-    height: 350px;
+    height: 250px;
     background-color: white;
     position: absolute;
     top: 50%;
@@ -101,40 +101,59 @@ body.puntos-body, html.puntos-html {
     font-family: 'Poppins', sans-serif;
 }
 
-.heladeras-lista {
-    margin-top: 20px;
+.csv-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.heladeras-lista h2 {
-    font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    color: #002b59;
-}
-
-.heladeras-lista ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.heladeras-lista li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.csv-upload-label {
     font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
 }
 
-.reportar-btn {
-    margin-top: 20px;
+.csv-upload-button {
+    margin-top: 10px;
     padding: 10px 20px;
     background-color: #002b59;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
 }
 
-.reportar-btn:hover {
+.csv-upload-button:hover {
+    background-color: #004080;
+}
+.csv-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.csv-upload-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.csv-upload-input {
+    margin-bottom: 50px;
+}
+
+.csv-upload-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #002b59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.csv-upload-button:hover {
     background-color: #004080;
 }

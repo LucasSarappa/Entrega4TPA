@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
     <link rel="stylesheet" href="PaginaPrincipal.module.css">
-    <link rel="stylesheet" href="../../App.css">
     <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
     <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
 </head>
@@ -13,27 +12,27 @@
 <div class="pg-principal-container">
     <!-- Navbar -->
     <nav class="navbar">
-        <button class="inicio-btn boton-navbar-estilo-comun" onclick="handleInicioClick()">
+        <button class="inicio-btn boton-navbar-estilo-comun"  onclick="handleInicioClick()">
             <div class="contenido-inicio-btn" style="display: flex; align-items: center;">
                 <p>Inicio</p>
             </div>
         </button>
 
-        <button class="nosotros-btn boton-navbar-estilo-comun" onclick="handleNosotrosClick()">
+        <button class="nosotros-btn boton-navbar-estilo-comun" disabled >
             <div class="contenido-nosotros-btn" style="display: flex; align-items: center;">
                 <p>Nosotros</p>
             </div>
         </button>
 
-        <button class="faqs-btn boton-navbar-estilo-comun" onclick="handleFaqsClick()">
+        <button class="faqs-btn boton-navbar-estilo-comun" disabled>
             <div class="contenido-faqs-btn" style="display: flex; align-items: center;">
                 <p>FAQs</p>
             </div>
         </button>
 
-        <button class="noticias-btn boton-navbar-estilo-comun" onclick="handleNoticiasClick()">
+        <button class="alertas-btn boton-navbar-estilo-comun" onclick="handleAlertas()">
             <div class="contenido-noticias-btn" style="display: flex; align-items: center;">
-                <p>Noticias</p>
+                <p>Alertas</p>
             </div>
         </button>
 

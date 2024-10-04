@@ -138,3 +138,26 @@ body.puntos-body, html.puntos-html {
 .reportar-btn:hover {
     background-color: #004080;
 }
+
+.heladera-detalles {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.heladera-detalles h3 {
+    margin-top: 0;
+    color: #002b59;
+}
+
+.heladera-detalles ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.heladera-detalles li {
+    padding: 5px 0;
+}

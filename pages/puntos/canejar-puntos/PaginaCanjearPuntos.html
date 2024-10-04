@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PaginaCanjearPuntos.module.css">
+    <link rel="stylesheet" href="../../../components/navbar/Navbar.module.css">
+    <link rel="stylesheet" href="../../../components/buttons/Buttons.module.css">
+    <title>Canjear Puntos</title>
+</head>
+<body class="pg-puntos-container">
+<img src="../../../components/utils/logo-sin-fondo.png" alt="Logo" class="pg-puntos-imagen-logo-esquina">
+<!-- Navbar -->
+<nav class="navbar">
+    <button class="inicio-btn boton-navbar-estilo-comun"  onclick="handleInicioClick()" >
+        <div class="contenido-inicio-btn" style="display: flex; align-items: center;">
+            <p>Inicio</p>
+        </div>
+    </button>
+
+    <button class="nosotros-btn boton-navbar-estilo-comun" disabled>
+        <div class="contenido-nosotros-btn" style="display: flex; align-items: center;">
+            <p>Nosotros</p>
+        </div>
+    </button>
+
+    <button class="faqs-btn boton-navbar-estilo-comun" disabled>
+        <div class="contenido-faqs-btn" style="display: flex; align-items: center;">
+            <p>FAQs</p>
+        </div>
+    </button>
+
+    <button class="alertas-btn boton-navbar-estilo-comun" disabled>
+        <div class="contenido-noticias-btn" style="display: flex; align-items: center;">
+            <p>Noticias</p>
+        </div>
+    </button>
+
+    <button class="mapa-btn boton-navbar-estilo-comun" onclick="handleMapaClick()">
+        <div class="contenido-mapa-btn" style="display: flex; align-items: center;">
+            <p>Mapa</p>
+        </div>
+    </button>
+
+    <div id="colaborador-buttons" style="display: none;">
+        <button class="cargarColaboradores-btn boton-navbar-estilo-comun"
+                onclick="handleCargarColaboradoresClick()">
+            <div class="contenido-cargarColaboradores-btn" style="display: flex; align-items: center;">
+                <p>Cargar Colaboradores</p>
+            </div>
+        </button>
+        <div class="puntos-dropdown-container">
+            <button class="puntos-btn boton-navbar-estilo-comun" onclick="togglePuntosDropdown()">
+                <div class="contenido-puntos-btn" style="display: flex; align-items: center;">
+                    <p>Puntos</p>
+                </div>
+            </button>
+            <div class="puntos-dropdown" id="puntos-dropdown" style="display: none;">
+                <button onclick="handleConsultarPuntosClick()">Consultar Puntos</button>
+                <button onclick="handleCanjearPuntosClick()">Canjear Puntos</button>
+            </div>
+        </div>
+        <button class="fallas-btn boton-navbar-estilo-comun" onclick="handleReportarFallasClick()">
+            <div class="contenido-fallas-btn" style="display: flex; align-items: center;">
+                <p>Reportar Fallas</p>
+            </div>
+        </button>
+    </div>
+
+    <div id="auth-buttons">
+        <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
+    </div>
+</nav>
+<div class="rectangulo-puntos-personalizado">
+    <div class="stats-puntos-container">
+        <div class="productos-lista">
+            <h2>Productos para Canjear</h2>
+            <ul id="productos-lista">
+                <!-- Los productos se agregarán aquí dinámicamente -->
+            </ul>
+            <button class="canjear-btn" onclick="handleCanjearSeleccionados()">¡Deseo canjearlos!</button>
+        </div>
+    </div>
+</div>
+<script>
+    const productos = [
+        { nombre: "Producto 1", puntos: 1000 },
+        { nombre: "Producto 2", puntos: 2000 },
+        { nombre: "Producto 3", puntos: 3000 }
+    ];
+
+    const productosLista = document.getElementById('productos-lista');
+    productos.forEach(producto => {
+        const li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" class="producto-checkbox" value="${producto.nombre}"> ${producto.nombre} - ${producto.puntos} puntos`;
+        productosLista.appendChild(li);
+    });
+
+    function handleCanjearSeleccionados() {
+        const checkboxes = document.querySelectorAll('.producto-checkbox:checked');
+        const productosSeleccionados = Array.from(checkboxes).map(checkbox => checkbox.value);
+        alert(`Productos seleccionados para canjear: ${productosSeleccionados.join(', ')}`);
+    }
+</script>
+<script src="../../../components/navbar/Navbar.js"></script>
+
+</body>
+</html>

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./PaginaConsultarPuntos.module.css">
+    <link rel="stylesheet" href="PaginaCargarColaboradores.module.css">
     <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
     <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
-    <link rel="stylesheet" href="../../App.css">
-    <title>Consultar Puntos</title>
+    <title>Cargar Colaboraciones</title>
 </head>
 <body class="pg-puntos-container">
 <img src="../../components/utils/logo-sin-fondo.png" alt="Logo" class="pg-puntos-imagen-logo-esquina">
@@ -19,21 +18,21 @@
         </div>
     </button>
 
-    <button class="nosotros-btn boton-navbar-estilo-comun" onclick="handleNosotrosClick()">
+    <button class="nosotros-btn boton-navbar-estilo-comun" disabled>
         <div class="contenido-nosotros-btn" style="display: flex; align-items: center;">
             <p>Nosotros</p>
         </div>
     </button>
 
-    <button class="faqs-btn boton-navbar-estilo-comun" onclick="handleFaqsClick()">
+    <button class="faqs-btn boton-navbar-estilo-comun" disabled>
         <div class="contenido-faqs-btn" style="display: flex; align-items: center;">
             <p>FAQs</p>
         </div>
     </button>
 
-    <button class="noticias-btn boton-navbar-estilo-comun" onclick="handleNoticiasClick()">
+    <button class="alertas-btn boton-navbar-estilo-comun" onclick="handleAlertas()">
         <div class="contenido-noticias-btn" style="display: flex; align-items: center;">
-            <p>Noticias</p>
+            <p>Alertas</p>
         </div>
     </button>
 
@@ -50,9 +49,8 @@
                 <p>Cargar Colaboradores</p>
             </div>
         </button>
-        <div class="puntos-dropdown-container" onmouseenter="showPuntosDropdown()"
-             onmouseleave="hidePuntosDropdown()">
-            <button class="puntos-btn boton-navbar-estilo-comun">
+        <div class="puntos-dropdown-container">
+            <button class="puntos-btn boton-navbar-estilo-comun" onclick="togglePuntosDropdown()">
                 <div class="contenido-puntos-btn" style="display: flex; align-items: center;">
                     <p>Puntos</p>
                 </div>
@@ -69,29 +67,20 @@
         </button>
     </div>
 
-
-</nav>
-<div class="rectangulo-puntos-personalizado">
-    <div class="stats-puntos-container">
-        <div class="stats-puntos-card active">
-            <div class="stats-puntos-title">Puntos acumulados:</div>
-            <div class="stats-puntos-value">10.234</div>
-        </div>
+    <div id="auth-buttons">
+        <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
     </div>
-</div>
-<script>
-    let activeIndex = 0;
-    const stats = [
-        {title: "Puntos acumulados:", value: "10.234"}
-    ];
+</nav>
 
-    setInterval(() => {
-        activeIndex = (activeIndex + 1) % stats.length;
-        document.querySelectorAll('.stats-puntos-card').forEach((card, index) => {
-            card.classList.toggle('active', index === activeIndex);
-        });
-    }, 3000);
-</script>
+<!-- Formulario para cargar archivo CSV -->
+<div class="csv-upload-container">
+    <form id="csv-upload-form">
+        <label for="csv-file" class="csv-upload-label">Cargar archivo CSV:</label>
+        <input type="file" id="csv-file" name="csv-file" accept=".csv" class="csv-upload-input">
+        <button type="submit" class="csv-upload-button">Subir</button>
+    </form>
+</div>
+
 <script src="../../components/navbar/Navbar.js"></script>
 
 </body>
