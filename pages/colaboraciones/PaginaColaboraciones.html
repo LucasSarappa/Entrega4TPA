@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
+    <title>Página Colaboraciones</title>
     <link rel="stylesheet" href="../../components/navbar/Navbar.module.css">
     <link rel="stylesheet" href="../../components/buttons/Buttons.module.css">
     <link rel="stylesheet" href="PaginaColaboraciones.module.css">
@@ -13,27 +13,27 @@
 <div class="pg-principal-container">
     <!-- Navbar -->
     <nav class="navbar">
-        <button class="inicio-btn boton-navbar-estilo-comun" onclick="handleInicioClick()">
+        <button class="inicio-btn boton-navbar-estilo-comun"  onclick="handleInicioClick()">
             <div class="contenido-inicio-btn" style="display: flex; align-items: center;">
                 <p>Inicio</p>
             </div>
         </button>
 
-        <button class="nosotros-btn boton-navbar-estilo-comun" onclick="handleNosotrosClick()">
+        <button class="nosotros-btn boton-navbar-estilo-comun" disabled >
             <div class="contenido-nosotros-btn" style="display: flex; align-items: center;">
                 <p>Nosotros</p>
             </div>
         </button>
 
-        <button class="faqs-btn boton-navbar-estilo-comun" onclick="handleFaqsClick()">
+        <button class="faqs-btn boton-navbar-estilo-comun" disabled>
             <div class="contenido-faqs-btn" style="display: flex; align-items: center;">
                 <p>FAQs</p>
             </div>
         </button>
 
-        <button class="noticias-btn boton-navbar-estilo-comun" onclick="handleNoticiasClick()">
+        <button class="alertas-btn boton-navbar-estilo-comun" onclick="handleAlertas()">
             <div class="contenido-noticias-btn" style="display: flex; align-items: center;">
-                <p>Noticias</p>
+                <p>Alertas</p>
             </div>
         </button>
 
@@ -50,9 +50,8 @@
                     <p>Cargar Colaboradores</p>
                 </div>
             </button>
-            <div class="puntos-dropdown-container" onmouseenter="showPuntosDropdown()"
-                 onmouseleave="hidePuntosDropdown()">
-                <button class="puntos-btn boton-navbar-estilo-comun">
+            <div class="puntos-dropdown-container">
+                <button class="puntos-btn boton-navbar-estilo-comun" onclick="togglePuntosDropdown()">
                     <div class="contenido-puntos-btn" style="display: flex; align-items: center;">
                         <p>Puntos</p>
                     </div>
@@ -69,7 +68,9 @@
             </button>
         </div>
 
-
+        <div id="auth-buttons">
+            <button class="login-btn boton-login-estilo" onclick="handleLogoutClick()">Log Out</button>
+        </div>
     </nav>
 
     <!-- TIPOS DE COLABORACIONES -->

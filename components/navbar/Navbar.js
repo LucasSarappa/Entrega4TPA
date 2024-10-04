@@ -52,20 +52,24 @@ function handleMapaClick() {
 }
 
 function handleCargarColaboradoresClick() {
-    window.location.href = '/PaginaCargarColaboradores';
+    window.location.href = '/front_html_css/pages/cargar-colaboradores/PaginaCargarColaboradores.html';
 }
 
 function handleConsultarPuntosClick() {
-    window.location.href = '/front_html_css/pages/puntos/PaginaConsultarPuntos.html';
+    window.location.href = '/front_html_css/pages/puntos/consultar-puntos/PaginaConsultarPuntos.html';
 }
 
 function handleCanjearPuntosClick() {
-    window.location.href = '/front_html_css/pages/puntos/PaginaCanjearPuntos.html';
+    window.location.href = '/front_html_css/pages/puntos/canejar-puntos/PaginaCanjearPuntos.html';
 
 }
 
 function handleReportarFallasClick() {
-    window.location.href = '/PaginaReportarFallas';
+    window.location.href = '/front_html_css/pages/fallas/PaginaReportarFallas.html';
+}
+
+function handleAlertas() {
+    window.location.href = '/front_html_css/pages/alertas/PaginaAlertas.html';
 }
 
 function handleLogoutClick() {
@@ -86,9 +90,18 @@ function togglePuntosDropdown() {
         dropdown.style.display = 'none';
     }
 }
+
 function handlerOpcionesHeladera() {
     window.location.href = '../../pages/colaboraciones/tipos-de-colaboraciones/harcerseCargoDeUnaHeladera/PaginaHacerseCargoDeUnaHeladera.html';
 }
+
+
+function handleSuscribirse() {
+    window.location.href = '../../pages/colaboraciones/tipos-de-colaboraciones/harcerseCargoDeUnaHeladera/PaginaHacerseCargoDeUnaHeladera.html';
+}
+
+
+
 
 function handlerDonarDinero() {
     window.location.href = '../../pages/colaboraciones/tipos-de-colaboraciones/donarDinero/DonarDinero.html';

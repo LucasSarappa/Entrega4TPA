@@ -101,29 +101,29 @@ body.puntos-body, html.puntos-html {
     font-family: 'Poppins', sans-serif;
 }
 
-.heladeras-lista {
+.productos-lista {
     margin-top: 20px;
 }
 
-.heladeras-lista h2 {
+.productos-lista h2 {
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
     color: #002b59;
 }
 
-.heladeras-lista ul {
+.productos-lista ul {
     list-style-type: none;
     padding: 0;
 }
 
-.heladeras-lista li {
+.productos-lista li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
 }
 
-.reportar-btn {
+.canjear-btn {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #002b59;
@@ -135,6 +135,6 @@ body.puntos-body, html.puntos-html {
     font-family: 'Poppins', sans-serif;
 }
 
-.reportar-btn:hover {
+.canjear-btn:hover {
     background-color: #004080;
 }

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SuscribirseHeladera.module.css">
-    <link rel="stylesheet" href="../../../../../components/navbar/Navbar.module.css">
-    <link rel="stylesheet" href="../../../../../components/buttons/Buttons.module.css">
-    <title>Suscribirse a una heladera</title>
+    <link rel="stylesheet" href="PaginaReportarFallas.module.css">
+    <link rel="stylesheet" href="../../../components/navbar/Navbar.module.css">
+    <link rel="stylesheet" href="../../../components/buttons/Buttons.module.css">
+    <title>Reportar Fallas</title>
 </head>
 <body class="pg-puntos-container">
-<img src="../../../../../components/utils/logo-sin-fondo.png" alt="Logo" class="pg-puntos-imagen-logo-esquina">
+<img src="../../../components/utils/logo-sin-fondo.png" alt="Logo" class="pg-puntos-imagen-logo-esquina">
 <nav class="navbar">
     <button class="inicio-btn boton-navbar-estilo-comun"><p>Inicio</p></button>
     <button class="nosotros-btn boton-navbar-estilo-comun" disabled><p>Nosotros</p></button>
@@ -36,9 +36,9 @@
 <div class="rectangulo-puntos-personalizado">
     <div class="stats-puntos-container">
         <div class="heladeras-lista">
-            <h2>Heladeras Disponibles para suscribirse</h2>
+            <h2>Heladeras Activas</h2>
             <ul id="heladeras-lista"></ul>
-            <button class="reportar-btn" onclick="handleSuscribirse()">Suscribirse !!</button>
+            <button class="reportar-btn" onclick="handleReportarFalla()">Reportar Falla!</button>
         </div>
     </div>
 </div>
@@ -59,9 +59,9 @@
         const selectedHeladera = document.querySelector('.heladera-radio:checked');
         if (selectedHeladera) {
             const heladeraIndex = selectedHeladera.value;
-            alert(`Suscribiendose a la heladera: ${heladeras[heladeraIndex].popup}`);
+            alert(`Reportando falla para: ${heladeras[heladeraIndex].popup}`);
         } else {
-            alert('Por favor, seleccione una heladera para suscribirse.');
+            alert('Por favor, seleccione una heladera para reportar la falla.');
         }
     }
 </script>
